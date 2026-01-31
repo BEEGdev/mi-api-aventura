@@ -1,0 +1,86 @@
+openapi: 3.0.0
+info:
+  title: Mi API Aventura
+  description: API del módulo 7
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Servidor local
+  - url: https://tu-proyecto.vercel.app
+    description: Servidor de producción
+
+paths:
+  /api/v1/hola:
+    get:
+      summary: Mensaje de bienvenida
+      responses:
+        '200':
+          description: Respuesta exitosa
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensaje:
+                    type: string
+
+  /api/v1/saludo:
+    get:
+      summary: Saludo personalizado
+      parameters:
+        - in: query
+          name: nombre
+          schema:
+            type: string
+          required: true
+          description: Nombre de la persona a saludar
+      responses:
+        '200':
+          description: Saludo exitoso
+        '400':
+          description: Parámetro nombre requerido
+
+  /api/v1/login:
+    post:
+      summary: Autenticación de usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Login exitoso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  token:
+                    type: string
+
+  /api/v1/usuarios:
+    get:
+      summary: Obtener lista de usuarios
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Lista de usuarios
+        '401':
+          description: No autorizado
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
