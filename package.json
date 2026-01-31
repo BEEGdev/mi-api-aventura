@@ -1,0 +1,20 @@
+{
+  "name": "mi-api-aventura",
+  "version": "1.0.0",
+  "description": "API de prueba para el módulo 7",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api",
+    "express",
+    "backend"
+  ],
+  "author": "Tu nombre",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
