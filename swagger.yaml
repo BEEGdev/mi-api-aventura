@@ -3,12 +3,7 @@ info:
   title: Mi API Aventura
   description: API del módulo 7
   version: 1.0.0
-servers:
-  - url: http://localhost:3000
-    description: Servidor local
-  - url: https://tu-proyecto.vercel.app
-    description: Servidor de producción
-
+  
 paths:
   /api/v1/hola:
     get:
